@@ -25,7 +25,7 @@ core() {
   fi
 
   install
-  log_success "install frp success."
+  log::success "install frp success."
 }
 
 run() {

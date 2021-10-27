@@ -23,7 +23,7 @@ core() {
   fi
 
   remove
-  log_success "remove frp success."
+  log::success "remove frp success."
 }
 
 run() {
