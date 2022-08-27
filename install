@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FRP_VERSION=v0.37.1
+FRP_VERSION=v0.44.0
 
 help() {
   echo "Usage:"
