@@ -15,7 +15,11 @@ install() {
   cd /tmp
   tar -zxvf $tmp_file >>/dev/null 2>&1
   rm $tmp_file
-  sudo mv frp_*_linux_amd64/{frps,frpc} /usr/bin
+  if [ "$(os::is_macos)" = "true" ]; then
+    sudo mv frp_*_linux_amd64/{frps,frpc} /usr/local/bin
+  else
+    sudo mv frp_*_linux_amd64/{frps,frpc} /usr/bin
+  fi
 }
 
 core() {

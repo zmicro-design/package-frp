@@ -1,0 +1,33 @@
+#!/bin/bash
+
+help() {
+  echo "Usage:"
+  echo "  zmicro frp <server|client> <args ...>"
+  echo ""
+}
+
+core() {
+  if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    help
+    exit 0
+  fi
+
+  local type=$1
+  local args=${@:2}
+
+  if [ "$type" = "client" ]; then
+    frpc $args
+  elif [ "$type" = "server" ]; then
+    frps $args
+  else
+    log::error "unknown type: $type"
+    help
+    exit 1
+  fi
+}
+
+run() {
+  core $@
+}
+
+run $@
